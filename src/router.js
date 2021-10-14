@@ -26,15 +26,15 @@ const readFile = async(filename) => {
 const router = (app) => {
     app.get('/', (req, res) => {
         res.send(
-            '<h1> Welcome mother fucker! did you like bad words? here is your place </h1> <p>To save a new shitty word is https://bad-word.herokuapp.com//{lengague}/{word}</p> <p>To get the fucking words is https://bad-word.herokuapp.com//list/{lengague}</p>'
+            '<h1> Welcome mother fucker! did you like bad words? here is your place </h1> <p>To save a new shitty word is https://bad-word.herokuapp.com//{lenguage}/{word}</p> <p>To get the fucking words is https://bad-word.herokuapp.com//list/{lenguage}</p>'
         );
     });
 
-    app.get('/new/:lengague/:word', async(req, res) => {
+    app.get('/new/:lenguage/:word', async(req, res) => {
         console.log(req.params);
         
-        const lenDir = mainDir + '/' + req.params.lengague;
-        const filename = lenDir + '/' + req.params.lengague + '.json';
+        const lenDir = mainDir + '/' + req.params.lenguage;
+        const filename = lenDir + '/' + req.params.lenguage + '.json';
 
         if (!fs.existsSync(mainDir)){
             fs.mkdirSync(mainDir);
@@ -78,10 +78,10 @@ const router = (app) => {
         
     });
 
-    app.get('/list/:lengague', async(req, res) => {
+    app.get('/list/:lenguage', async(req, res) => {
         
-        const lenDir = mainDir + '/' + req.params.lengague;
-        const filename = lenDir + '/' + req.params.lengague + '.json';
+        const lenDir = mainDir + '/' + req.params.lenguage;
+        const filename = lenDir + '/' + req.params.lenguage + '.json';
 
         if (!fs.existsSync(mainDir)){
             fs.mkdirSync(mainDir);
@@ -93,7 +93,7 @@ const router = (app) => {
 
         if(!fs.existsSync(filename)){
             const result = await createFile(filename, {words: []});
-            res.send(`WTF!? There's no fucking words recorded on your shitty lengague, hahaha!`);
+            res.send(`WTF!? There's no fucking words recorded on your shitty lenguage, hahaha!`);
         }else {
             const result = await readFile(filename);
             const success = result.success;
