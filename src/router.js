@@ -26,7 +26,7 @@ const readFile = async(filename) => {
 const router = (app) => {
     app.get('/', (req, res) => {
         res.send(
-            '<h1> Welcome mother fucker! did you like bad words? here is your place </h1> <p>To save a new shitty word is url/{lengague}/{word}</p> <p>To get the fucking words is url/list/{lengague}</p>'
+            '<h1> Welcome mother fucker! did you like bad words? here is your place </h1> <p>To save a new shitty word is https://bad-word.herokuapp.com//{lengague}/{word}</p> <p>To get the fucking words is https://bad-word.herokuapp.com//list/{lengague}</p>'
         );
     });
 
